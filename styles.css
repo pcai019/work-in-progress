@@ -1,0 +1,389 @@
+/* Reset some default styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Proxima Nova', sans-serif;
+  background: #FFF7E1;
+}
+
+/* Navbar styles */
+.navbar {
+  width: 100%;
+  /* Use simple flex for layout */
+  display: flex;
+  justify-content: space-between; /* Space between logo and sign in */
+  align-items: center;
+  padding: 20px 40px;
+  background: #FFF7E1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+/* Logo image style */
+.logo-img {
+  height: 60px; /* Adjust as needed */
+}
+
+/* Sign in link style */
+.signin {
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  font-size: 1rem;
+}
+/* Reset some default styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Proxima Nova', sans-serif;
+  background: #fff;
+}
+
+/* Navbar styles */
+.navbar {
+  width: 100%;
+  /* Use simple flex for layout */
+  display: flex;
+  justify-content: space-between; /* Space between logo and sign in */
+  align-items: center;
+  padding: 20px 40px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+/* Logo image style */
+.logo-img {
+  height: 60px; /* Adjust as needed */
+}
+
+/* Sign in link style */
+.signin {
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Container for logo + links */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 32px; /* space between logo and links */
+}
+
+/* Nav links container */
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+/* Nav links style (same as .signin) */
+.nav-item {
+  text-decoration: none; /* removes underline */
+  color: #222;            /* black */
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+/* Hero section styles */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Adjust height as needed */
+  min-height: 400px;
+  overflow: hidden;
+}
+
+/* Background image fills the hero section */
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Blue overlay on the left side */
+.blue-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%; /* Made overlay wider */
+  height: 100%;
+  background: rgba(0, 51, 102, 0.35); /* More transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered content in overlay */
+.overlay-content {
+  text-align: center;
+  color: #f7f7f7; /* Set text color to white for overlay content */
+  width: 85%;
+  margin: 0 auto;
+  /* Center all content inside overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Headline styles */
+.overlay-content h1 {
+  font-size: 4rem; /* Large headline */
+  margin-bottom: 20px;
+  font-family: 'Proxima Nova', sans-serif;
+  line-height: 1.0;
+  color: #f7f7f7; /* Headline is white */
+  text-align: center; /* Center headline */
+}
+
+/* Subheadline styles */
+.subheadline {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  font-family: 'Proxima Nova', sans-serif;
+  line-height: 1.5;
+  color: #f7f7f7; /* Subheadline is white */
+  text-align: center; /* Center subheadline */
+}
+
+/* Call to action button */
+.cta-button {
+  display: inline-block;
+  background: #FFC907;
+  color: #1a1a1a;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Proxima Nova', sans-serif;
+  margin-top: 10px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform: scale(1);
+}
+
+.cta-button:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft, subtle glow */
+}
+
+/* Modal background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Modal box */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Close button (X) */
+.close-button {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Input styling */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #FFC907;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #FFC907;
+}
+
+/* Hero section styles */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Adjust height as needed */
+  min-height: 400px;
+  overflow: hidden;
+}
+
+/* Background image fills the hero section */
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Blue overlay on the left side */
+.blue-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%; /* Made overlay wider */
+  height: 100%;
+  background: rgba(0, 51, 102, 0.35); /* More transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered content in overlay */
+.overlay-content {
+  text-align: center;
+  color: #f7f7f7; /* Set text color to white for overlay content */
+  width: 85%;
+  margin: 0 auto;
+  /* Center all content inside overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Headline styles */
+.overlay-content h1 {
+  font-size: 4rem; /* Large headline */
+  margin-bottom: 20px;
+  font-family: 'Proxima Nova', sans-serif;
+  line-height: 1.0;
+  color: #f7f7f7; /* Headline is white */
+  text-align: center; /* Center headline */
+}
+
+/* Subheadline styles */
+.subheadline {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  font-family: 'Proxima Nova', sans-serif;
+  line-height: 1.5;
+  color: #f7f7f7; /* Subheadline is white */
+  text-align: center; /* Center subheadline */
+}
+
+/* Call to action button */
+.cta-button {
+  display: inline-block;
+  background: #FFC907; /* Yellow background */
+  color: #1a1a1a; /* Button text is dark */
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Proxima Nova', sans-serif;
+  margin-top: 10px;
+  transition: background 0.2s;
+  line-height: 1.2;
+  text-align: center; /* Center button text */
+}
+
+.cta-button:hover {
+  background: #FFC907;
+}
+
+/* Modal background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Modal box */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 15px 24px 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Close button (X) */
+.close-button {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Input styling */
+input[type="email"],
+input[type="password"] {
+  width: 90%;
+  margin: 8px auto;
+  display: block;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  width: 140px;             /* narrower width */
+  padding: 15px 0;          /* taller height: top/bottom padding only */
+  background-color: #FFC907;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 4px auto 0;      /* center horizontally and add spacing */
+  display: block;
+}
+
+button[type="submit"]:hover {
+  background-color: #FFC907;
+}
+
+.thank-you-popup {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFF7E1;
+  color: #1A1A1A;
+  padding: 32px 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 1.2rem;
+  font-family: 'Proxima Nova', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1000;
+   opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
