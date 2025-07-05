@@ -1,4 +1,4 @@
-/* Reset some default styles */
+/* Reset and base styles */
 body {
   margin: 0;
   padding: 0;
@@ -6,95 +6,74 @@ body {
   background: #FFF7E1;
 }
 
-/* Navbar styles */
+/* Navbar */
 .navbar {
-  width: 100%;
-  /* Use simple flex for layout */
+  height: 60px;
   display: flex;
-  justify-content: space-between; /* Space between logo and sign in */
+  justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 0 40px;
   background: #FFF7E1;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
-/* Logo image style */
-.logo-img {
-  height: 60px; /* Adjust as needed */
-}
-
-/* Sign in link style */
-.signin {
-  text-decoration: none;
-  color: #222;
-  font-weight: bold;
-  font-size: 1rem;
-}
-/* Reset some default styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Proxima Nova', sans-serif;
-  background: #fff;
-}
-
-/* Navbar styles */
-.navbar {
-  width: 100%;
-  /* Use simple flex for layout */
+/* Logo container crops and centers image */
+.logo-container {
+  height: 60px;
+  width: 180px;            /* Make container a bit wider */
+  overflow: hidden;
   display: flex;
-  justify-content: space-between; /* Space between logo and sign in */
   align-items: center;
-  padding: 20px 40px;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  justify-content: flex-start; /* Push logo to the far left */
+  padding-left: 0;            /* Optional: remove any extra padding */
+  margin-right: 16px;         /* Optional spacing between logo and other items */
 }
 
-/* Logo image style */
 .logo-img {
-  height: 60px; /* Adjust as needed */
+  height: 170px;            /* Increase image size for more visual impact */
+  object-fit: cover;
+  object-position: top left; /* Crop bottom more, push to the left */
+  display: block;
 }
 
-/* Sign in link style */
+/* Sign in link */
 .signin {
   text-decoration: none;
-  color: #222;
+  color: #1a1a1a;
   font-weight: bold;
   font-size: 1rem;
+  font-family: 'Proxima Nova', sans-serif;
 }
 
-/* Container for logo + links */
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 32px; /* space between logo and links */
+  gap: 1px;  /* ← THIS controls distance between logo and links */
 }
 
-/* Nav links container */
 .nav-links {
   display: flex;
   gap: 24px;
+  align-items: center;
 }
 
-/* Nav links style (same as .signin) */
 .nav-item {
-  text-decoration: none; /* removes underline */
-  color: #222;            /* black */
+  text-decoration: none;
+  color: #1a1a1a;
   font-weight: bold;
   font-size: 1rem;
   font-family: 'Proxima Nova', sans-serif;
 }
 
-/* Hero section styles */
+/* Hero section */
 .hero-section {
   position: relative;
   width: 100%;
-  height: 80vh; /* Adjust height as needed */
+  height: 80vh;
   min-height: 400px;
   overflow: hidden;
 }
 
-/* Background image fills the hero section */
 .hero-bg {
   width: 100%;
   height: 100%;
@@ -107,45 +86,247 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 45%; /* Made overlay wider */
+  width: 45%;
   height: 100%;
-  background: rgba(0, 51, 102, 0.35); /* More transparent */
+  background: rgba(0, 51, 102, 0.35);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2vw; /* new */
+  box-sizing: border-box; /* ensures padding is included properly */
 }
 
-/* Centered content in overlay */
 .overlay-content {
   text-align: center;
-  color: #f7f7f7; /* Set text color to white for overlay content */
+  color: #f7f7f7;
   width: 85%;
   margin: 0 auto;
-  /* Center all content inside overlay */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* Headline styles */
 .overlay-content h1 {
-  font-size: 4rem; /* Large headline */
+  font-size: 4rem;
   margin-bottom: 20px;
-  font-family: 'Proxima Nova', sans-serif;
   line-height: 1.0;
-  color: #f7f7f7; /* Headline is white */
-  text-align: center; /* Center headline */
+  text-align: center;
 }
 
-/* Subheadline styles */
 .subheadline {
   font-size: 1.4rem;
   margin-bottom: 30px;
-  font-family: 'Proxima Nova', sans-serif;
   line-height: 1.5;
-  color: #f7f7f7; /* Subheadline is white */
-  text-align: center; /* Center subheadline */
+  text-align: center;
+}
+
+/* Wrapper to center the big box and set background */
+.info-wrapper {
+  background-color: #FFF7E1; /* Peach background */
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* The big white box */
+.info-box {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 1100px;
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Tab navigation inside the box */
+.tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #222;
+  border-radius: 12px;
+  transition: background 0.3s ease, transform 0.25s ease;
+}
+
+.tab-btn:hover {
+  background-color: #ffe066; /* softer yellow for hover */
+  transform: scale(1.05); /* gentle zoom */
+}
+
+.tab-btn.active {
+  background-color: #FFC907;
+}
+
+/* Content inside the tab area */
+.tab-content-box {
+  text-align: center;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Progress bar styles */
+.progress-container {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: left;
+  position: relative;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #77A8BB;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.percentage {
+  color: #555;
+}
+
+.support-btn {
+  margin-top: 36px;
+  float: right;
+  background-color: #ffc907;
+  color: #1a1a1a;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  transform: scale(1);
+  text-align: center;
+}
+
+.support-btn:hover {
+  background-color: #ffb900;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: nowrap;  /* Force side-by-side layout */
+}
+
+.achievement-image {
+  flex: 1;
+  max-width: 45%;
+  border-radius: 12px;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.achievement-text {
+  flex: 1;
+  max-width: 50%;
+}
+
+.achievement-text h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.achievement-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.future-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 32px;
+  align-items: center;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+  background: #fdfdfd;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.project-card img {
+  width: 150px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.project-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* Call to action button */
@@ -158,18 +339,18 @@ body {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2rem;
-  font-family: 'Proxima Nova', sans-serif;
   margin-top: 10px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   transform: scale(1);
+  text-align: center;
 }
 
 .cta-button:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft, subtle glow */
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Modal background */
+/* Modal styles */
 .modal {
   display: none;
   position: fixed;
@@ -182,7 +363,6 @@ body {
   background-color: rgba(0,0,0,0.5);
 }
 
-/* Modal box */
 .modal-content {
   background-color: #fff;
   margin: 10% auto;
@@ -193,154 +373,12 @@ body {
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/* Close button (X) */
 .close-button {
   float: right;
   font-size: 24px;
   cursor: pointer;
 }
 
-/* Input styling */
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-top: 4px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background-color: #FFC907;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #FFC907;
-}
-
-/* Hero section styles */
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 80vh; /* Adjust height as needed */
-  min-height: 400px;
-  overflow: hidden;
-}
-
-/* Background image fills the hero section */
-.hero-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Blue overlay on the left side */
-.blue-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 45%; /* Made overlay wider */
-  height: 100%;
-  background: rgba(0, 51, 102, 0.35); /* More transparent */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Centered content in overlay */
-.overlay-content {
-  text-align: center;
-  color: #f7f7f7; /* Set text color to white for overlay content */
-  width: 85%;
-  margin: 0 auto;
-  /* Center all content inside overlay */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Headline styles */
-.overlay-content h1 {
-  font-size: 4rem; /* Large headline */
-  margin-bottom: 20px;
-  font-family: 'Proxima Nova', sans-serif;
-  line-height: 1.0;
-  color: #f7f7f7; /* Headline is white */
-  text-align: center; /* Center headline */
-}
-
-/* Subheadline styles */
-.subheadline {
-  font-size: 1.4rem;
-  margin-bottom: 30px;
-  font-family: 'Proxima Nova', sans-serif;
-  line-height: 1.5;
-  color: #f7f7f7; /* Subheadline is white */
-  text-align: center; /* Center subheadline */
-}
-
-/* Call to action button */
-.cta-button {
-  display: inline-block;
-  background: #FFC907; /* Yellow background */
-  color: #1a1a1a; /* Button text is dark */
-  padding: 14px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-  font-family: 'Proxima Nova', sans-serif;
-  margin-top: 10px;
-  transition: background 0.2s;
-  line-height: 1.2;
-  text-align: center; /* Center button text */
-}
-
-.cta-button:hover {
-  background: #FFC907;
-}
-
-/* Modal background */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-}
-
-/* Modal box */
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 15px 24px 20px;
-  border-radius: 12px;
-  width: 300px;
-  text-align: left;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-/* Close button (X) */
-.close-button {
-  float: right;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Input styling */
 input[type="email"],
 input[type="password"] {
   width: 90%;
@@ -353,14 +391,14 @@ input[type="password"] {
 }
 
 button[type="submit"] {
-  width: 140px;             /* narrower width */
-  padding: 15px 0;          /* taller height: top/bottom padding only */
+  width: 140px;
+  padding: 15px 0;
   background-color: #FFC907;
   border: none;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  margin: 4px auto 0;      /* center horizontally and add spacing */
+  margin: 4px auto 0;
   display: block;
 }
 
@@ -376,14 +414,251 @@ button[type="submit"]:hover {
   transform: translate(-50%, -50%);
   background-color: #FFF7E1;
   color: #1A1A1A;
-  padding: 32px 32px;
+  padding: 32px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   font-size: 1.2rem;
-  font-family: 'Proxima Nova', sans-serif;
   font-weight: bold;
   text-align: center;
   z-index: 1000;
-   opacity: 1;
+  opacity: 1;
   transition: opacity 1s ease-in-out;
+}
+
+.tab-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    max-height 0.4s ease;
+  pointer-events: none;
+}
+
+.tab-content.active {
+  max-height: 1000px; /* big enough to fit your content */
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.tab-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+/* ========== Responsive Design ========== */
+
+/* Tablets and smaller screens */
+@media (max-width: 1024px) {
+  .tab-nav {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .achievement-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .achievement-image, .achievement-text {
+    max-width: 100%;
+  }
+
+  .future-projects {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 100%;
+  }
+
+  .overlay-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .subheadline {
+    font-size: 1.2rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.blue-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: rgba(0, 51, 102, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+ .overlay-content {
+  text-align: center;
+  color: #f7f7f7;
+  width: 100%;
+  max-width: 90%;
+}
+
+  .subheadline {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  .info-box {
+    padding: 24px;
+  }
+
+  .tab-btn {
+    font-size: 0.95rem;
+    padding: 8px 14px;
+  }
+
+  .progress-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .support-btn {
+    float: none;
+    display: block;
+    margin: 20px auto 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .achievement-layout {
+    flex-direction: column;
+  }
+
+  .achievement-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .project-info {
+    padding-top: 12px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  margin-left: 16px;
+}
+
+/* Hide nav links on small screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #FFF7E1;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    z-index: 100;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-item {
+    padding: 8px 0;
+    text-align: right;
+  }
+}
+
+/* Mobile dropdown menu */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF7E1;  /* ← your new custom color */
+  padding: 0;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.mobile-menu a {
+  padding: 16px 24px;
+  text-decoration: none;
+  color: #1A1A1A;
+  border-top: 1px solid #e0d18b;
+  font-weight: bold;
+}
+
+.mobile-menu a:hover {
+  background-color: #FFF7E1;
+}
+
+.mobile-menu.active {
+  max-height: 500px; /* Adjust if your menu has more/less links */
+  padding: 12px 0;
 }

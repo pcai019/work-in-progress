@@ -4,132 +4,257 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>charity: water – Make Waves</title>
-  <!-- Link to your CSS file -->
   <link rel="stylesheet" href="styles.css"/>
-  <!-- Use Proxima Nova if available, fallback to sans-serif -->
   <style>
     @import url('https://fonts.googleapis.com/css?family=Proxima+Nova:400,700&display=swap');
-    body { font-family: 'Proxima Nova', sans-serif; }
+    body { font-family: 'Proxima Nova', sans-serif; margin: 0; background: #FFF7E1; }
+
+    /* Transition effect for tabs */
+    .tab-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+    .tab-content.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Unified headline and body styles */
+    .tab-content h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #1A1A1A;
+    }
+    .tab-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Make image in achievements tab larger */
+    .achievement-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+    .achievement-image {
+      width: 100%;
+      max-width: 550px;
+      border-radius: 16px;
+      flex: 1;
+    }
+    .achievement-text {
+      flex: 1;
+      min-width: 280px;
+    }
   </style>
 </head>
 <body>
-  <!-- Navbar at the top -->
-  <!-- Simple navbar with logo image on the left and Sign In on the right -->
-  <div class="navbar" style="width: 100%; overflow: hidden; padding: 16px 0;">
-    <!-- Logo image on the left -->
-    <!-- The image will stretch to fill the navbar height. Adjust height as needed. -->
-    <img src="pictures/charitywater_logo_horizontal_BlackText.png" alt="charity: water logo" style="height: 70px; margin-left: 16px; float: left;">
-    <!-- Sign in link on the right -->
-    <a href="#" class="signin" style="float: right; font-size: 16px; margin-right: 16px; text-decoration: none;">
-      SIGN IN
-    </a>
-  </div>
+  <!-- Navbar -->
+<!-- Navbar -->
+<div class="navbar">
+  <div class="navbar-left">
+    <div class="logo-container">
+      <img src="pictures/charitywater_logo_horizontal_BlackText.png" alt="charity: water logo" class="logo-img">
     </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#" class="nav-item">ABOUT US</a>
+      <a href="#" class="nav-item">OUR MISSION</a>
+      <a href="#" class="nav-item">THEIR STORIES</a>
+    </div>
+  </div>
 
-    <!-- Sign-In Modal -->
-<div id="signin-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <h2>Sign In</h2>
-    <form>
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" required><br><br>
-      
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required><br>
-      
-      <button type="submit">Log In</button>
-    </form>
+  <div class="nav-right">
+    <a href="#" class="signin">SIGN IN</a>
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
   </div>
 </div>
 
-  <!-- Hero section with background image and overlay -->
+  <!-- Sign-In Modal -->
+  <div id="signin-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Sign In</h2>
+      <form>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
   <div class="hero-section">
-    <!-- Background image -->
     <img src="pictures/girl washing hands.jpg" alt="Girl washing hands" class="hero-bg">
-    <!-- Blue overlay on the left side -->
     <div class="blue-overlay">
-      <!-- Centered text and button -->
       <div class="overlay-content">
         <h1>Make Waves<br>That Last</h1>
         <p class="subheadline">We build more than access— because<br>real impact begins beyond the well.</p>
-        <a href="#" class="cta-button">
-          GIFT WITH<br>CONFIDENCE
-        </a>
-        <!-- Add some space below the call to action button -->
+        <a href="#" class="cta-button">GIFT WITH<br>CONFIDENCE</a>
         <br>
-        <!-- Body text below the call to action -->
         <p class="body-text">
-          100% donations fund clean water projects,<br>
+          *100% donations fund clean water projects,<br>
           29+ countries reached and growing,<br>
           over 17 million people served
         </p>
-        </p>
-          </em>
-        </p>
-        </a>
       </div>
     </div>
   </div>
-  <!-- Thank you message (initially hidden) -->
-<div id="thank-you-message" class="thank-you-popup">
-  🎉 Thank you for your kind donation!<br>
-  Your support helps us bring clean<br>water to those in need. 🎉
-</div>
 
-<!-- Confetti library -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <!-- Info Section with Tabs -->
+  <section class="info-wrapper">
+    <div class="info-box">
+      <!-- Tab Nav Bar -->
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(event, 'goals')">Our Goals</button>
+        <button class="tab-btn" onclick="switchTab(event, 'achievements')">Our Achievements</button>
+        <button class="tab-btn" onclick="switchTab(event, 'future')">Our Future</button>
+      </div>
 
-<!-- Trigger confetti + message -->
-<script>
-  document.querySelector('.cta-button').addEventListener('click', function (e) {
-    e.preventDefault(); // Prevent link behavior
+      <!-- Tab Content Area -->
+      <div class="tab-content-box">
+        <!-- Goals -->
+        <div id="goals" class="tab-content active">
+          <h2>Our Goals</h2>
+          <p>Help us reach our funding goal to bring clean water to more communities.<br>We aim to raise $20,000 to support our ongoing projects.<br>Join us in making a difference!</p>
+          <div class="progress-container">
+            <div class="progress-info">
+              <span>$5,672.90 raised of $20,000</span>
+              <span class="percentage">28.36%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 28.36%;"></div>
+            </div>
+            <button class="support-btn">SUPPORT</button>
+          </div>
+        </div>
 
-    // Trigger confetti burst
-  confetti({
-  particleCount: 150,
-  spread: 70,
-  origin: { y: 0.6 },
-  colors: ['#FFC907'] // charity: water yellow
-});
+        <!-- Achievements -->
+        <div id="achievements" class="tab-content">
+        <div class="achievement-layout">
+          <img src="pictures/woman pouring water into jerry can.jpg" alt="Our Impact" class="achievement-image" />
+          <div class="achievement-text">
+            <h2>Our Achievements</h2>
+            <p>You’ve made real change possible. From remote villages to bustling towns, your support has helped bring clean water to millions. But don’t just take it from us—let’s hear from the people whose lives you’ve directly impacted.</p>
+          </div>
+        </div>
+      </div>
 
-  // Show and fade out thank-you popup
-const message = document.getElementById('thank-you-message');
-message.style.display = 'block';
-message.style.opacity = '1';
+        <!-- Future -->
+        <div id="future" class="tab-content">
+          <h2>Our Future</h2>
+          <p>We're committed to innovating clean water solutions and expanding to reach even more underserved areas.</p>
 
-setTimeout(() => {
-  message.style.opacity = '0';
-}, 2000);
+          <div class="future-projects">
+            <div class="project-card">
+              <img src="pictures/woman smiling in shelter.jpg" alt="Solar-powered filtration system">
+              <div class="project-info">
+                <h3>Solar Filtration Initiative</h3>
+                <p>Launching solar-powered filtration systems in remote villages with limited grid access, ensuring clean water 24/7.</p>
+              </div>
+            </div>
 
-setTimeout(() => {
-  message.style.display = 'none';
-}, 3000);
-  });
-</script>
+            <div class="project-card">
+              <img src="pictures/girls in school.jpg" alt="School clean water program">
+              <div class="project-info">
+                <h3>Clean Water in Schools</h3>
+                <p>Partnering with local communities to build clean water stations at schools, promoting hygiene and consistent attendance.</p>
+              </div>
+            </div>
 
-<script>
-  const modal = document.getElementById("signin-modal");
-  const signinLink = document.querySelector(".signin");
-  const closeBtn = document.querySelector(".close-button");
+            <div class="project-card">
+              <img src="pictures/girl studying.jpg" alt="Women-led water program">
+              <div class="project-info">
+                <h3>Women-Led Water Access</h3>
+                <p>Empowering women through water leadership training programs, ensuring sustainable access and community involvement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+  </section>
 
-  // Open modal
-  signinLink.addEventListener("click", function(event) {
-    event.preventDefault();
-    modal.style.display = "block";
-  });
+  <!-- Thank You Popup -->
+  <div id="thank-you-message" class="thank-you-popup">
+    🎉 Thank you for your kind donation!<br>
+    Your support helps us bring clean<br>water to those in need. 🎉
+  </div>
 
-  // Close modal
-  closeBtn.addEventListener("click", function() {
-    modal.style.display = "none";
-  });
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    document.querySelector('.cta-button').addEventListener('click', function (e) {
+      e.preventDefault();
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#FFC907']
+      });
 
-  // Close modal when clicking outside the modal box
-  window.addEventListener("click", function(event) {
-    if (event.target == modal) {
+      const message = document.getElementById('thank-you-message');
+      message.style.display = 'block';
+      message.style.opacity = '1';
+
+      setTimeout(() => { message.style.opacity = '0'; }, 2000);
+      setTimeout(() => { message.style.display = 'none'; }, 3000);
+    });
+
+    const modal = document.getElementById("signin-modal");
+    const signinLink = document.querySelector(".signin");
+    const closeBtn = document.querySelector(".close-button");
+
+    signinLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      modal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", function() {
       modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    function switchTab(event, tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      contents.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      event.currentTarget.classList.add('active');
+      const newTab = document.getElementById(tabId);
+      newTab.classList.add('active');
     }
+
+    const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+  </script>
+  <script>
+  document.getElementById('hamburger').addEventListener('click', function () {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('active');
   });
-</script>
+  </script>
 </body>
+
+
 </html>
